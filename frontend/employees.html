@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+</head>
+<body>
+    <center>
+    <h1>Empleados</h1>
+    <a href="./index.html">Inicio</a>
+    </center>
+    <hr>
+    <h2>Registrar empleados</h2>
+    <form id="employee-form">
+        <label for="name">Nombres:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="last_name">Apellidos:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <br><br>
+        <label for="birthdate">Fecha de nacimiento:</label>
+        <input type="date" id="birthdate" name="birthdate">
+        <br><br>
+        <label for="department">Departamento:</label>
+        <select id="department" name="department_id" required>
+            <option value="">Seleccione un departamento</option>
+        </select>
+    </form>
+</body>
+</html>
