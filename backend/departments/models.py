@@ -12,4 +12,4 @@ class Department(models.Model):
         verbose_name_plural = "Departamentos"
 
     def __str__(self) -> str:
-        return f"Departamento {self.name}"
+        return f"Departamento de {self.name}"
