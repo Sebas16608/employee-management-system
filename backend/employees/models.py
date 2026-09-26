@@ -1,6 +1,9 @@
-from django.db import models
+from django.db import models, transaction
 from departments.models import Department
 # Create your models here.
+class EmployeeSequence(models.Model):
+    last_number = models.PositiveIntegerField(default=0)
+
 class Employee(models.Model):
     code = models.CharField(max_length=200, unique=True, editable=False)
     name = models.CharField(max_length=50)
@@ -18,12 +21,12 @@ class Employee(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.code:
-            last = Employee.objects.order_by("-id").first()
-            if last is None:
-                next_code = 1
-            else:
-                next_code = last.pk + 1
+            with transaction.atomic():
+                sequence, _ = EmployeeSequence.objects.get_or_create(pk=1)
+                sequence.last_number += 1
+                sequence.save(update_fields=["last_number"])
+                self.code = f"EMP-{sequence.last_number:04d}"
 
-            self.code = f"EMP-{next_code:04d}"
-
-        super().save(*args, **kwargs)
+                super().save(*args, **kwargs)
+        else:
+            super().save(*args, **kwargs)
