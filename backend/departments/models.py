@@ -7,7 +7,7 @@ class Department(models.Model):
     description = models.TextField(blank=True)
 
     class Meta:
-        ordering = ["code"]
+        ordering = ["id", "code"]
         verbose_name = "Departamento"
         verbose_name_plural = "Departamentos"
 
