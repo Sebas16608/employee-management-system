@@ -8,14 +8,14 @@ class EmployeeView(APIView):
     def get(self, request, pk=None):
         if pk:
             try:
-                employee = Employee.objects.get(pk=pk)
+                employee = Employee.objects.select_related("department").get(pk=pk)
                 serializer = EmployeeSerializer(employee)
                 return Response(serializer.data, status=status.HTTP_200_OK)
             except Employee.DoesNotExist:
                 return Response({"error": "not found"}, status=status.HTTP_404_NOT_FOUND)
 
         else:
-            employee = Employee.objects.all()
+            employee = Employee.objects.select_related("department").all()
             serializer = EmployeeSerializer(employee, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -30,7 +30,7 @@ class EmployeeView(APIView):
         try:
             employee = Employee.objects.get(pk=pk)
         except Employee.DoesNotExist:
-            return Response({"error": "Not found"}, status=status.HTTP_200_OK)
+            return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
 
         serializers = EmployeeSerializer(employee, data=request.data, partial=True)
         if serializers.is_valid():
@@ -42,7 +42,7 @@ class EmployeeView(APIView):
         try:
             employee = Employee.objects.get(pk=pk)
         except Employee.DoesNotExist:
-            return Response({"error": "Not found"}, status=status.HTTP_200_OK)
+            return Response({"error": "Not found"}, status=status.HTTP_404_NOT_FOUND)
 
         employee.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
