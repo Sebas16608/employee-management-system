@@ -3,51 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <title>Empleados</title>
 </head>
+
 <body>
-    <center>
-    <h1>Empleados</h1>
-    <a href="./index.html">Inicio</a>
-    </center>
-    <hr>
-    <h2>Registrar empleados</h2>
-    <form id="employee-form">
-        <label for="name">Nombres:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        <label for="last_name">Apellidos:</label>
-        <input type="text" id="last_name" name="last_name" required>
-        <br><br>
-        <label for="birthdate">Fecha de nacimiento:</label>
-        <input type="date" id="birthdate" name="birthdate">
-        <br><br>
-        <label for="department">Departamento:</label>
-        <select id="department" name="department_id" required>
-            <option value="">Seleccione un departamento</option>
-        </select>
 
-        <br><br>
+    <div class="container">
 
-        <button type="submit">Guardar</button>
-    </form>
+        <h1>Empleados</h1>
 
-    <h2>Empleados registrados</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Fecha de nacimiento</th>
-                <th>Departamento</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="employees-table">
+        <nav>
+            <a href="./index.html">Inicio</a>
+            <a href="./departments.html">Departamentos</a>
+        </nav>
 
-        </tbody>
-    </table>
+        <h2>Registrar empleado</h2>
+
+        <form id="employee-form">
+
+            <label for="name">Nombres:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="last_name">Apellidos:</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <label for="birthdate">Fecha de nacimiento:</label>
+            <input type="date" id="birthdate" name="birthdate">
+
+            <label for="department">Departamento:</label>
+            <select id="department" name="department_id" required>
+                <option value="">Seleccione un departamento</option>
+            </select>
+
+            <button type="submit">Guardar</button>
+
+        </form>
+
+        <h2>Empleados registrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="employees-table">
+            </tbody>
+        </table>
+
+    </div>
+
     <script src="./js/employees.js"></script>
+
 </body>
 </html>

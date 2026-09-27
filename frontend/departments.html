@@ -3,43 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/styles.css">
+
     <title>Departamentos</title>
 </head>
+
 <body>
-    <center>
-    <h1>Departamentos</h1>
-    <a href="./index.html">Inicio</a>
-    </center>
-    <hr>
-    <h2>Registrar Departamentos</h2>
-    <form id="department-form">
-        <label for="code">Codigo:</label>
-        <input type="text" id="code" name="code" required>
-        <br><br>
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-        <label for="description">Descripcion:</label>
-        <input type="text" id="description" name="description">
-        <br><br>
 
-        <button type="submit">Guardar</button>
-    </form>
+    <div class="container">
 
-    <h2>Departamentos registrados</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody id="departments-table">
+        <h1>Departamentos</h1>
 
-        </tbody>
-    </table>
+        <nav>
+            <a href="./index.html">Inicio</a>
+            <a href="./employees.html">Empleados</a>
+        </nav>
+
+        <h2>Registrar departamento</h2>
+
+        <form id="department-form">
+
+            <label for="code">Código:</label>
+            <input type="text" id="code" name="code" required>
+
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Descripción:</label>
+            <textarea id="description" name="description"></textarea>
+
+            <button type="submit">Guardar</button>
+
+        </form>
+
+        <h2>Departamentos registrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="departments-table">
+            </tbody>
+        </table>
+
+    </div>
+
     <script src="./js/departments.js"></script>
+
 </body>
 </html>
