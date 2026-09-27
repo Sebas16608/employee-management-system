@@ -26,6 +26,28 @@
         <select id="department" name="department_id" required>
             <option value="">Seleccione un departamento</option>
         </select>
+
+        <br><br>
+
+        <button type="submit">Guardar</button>
     </form>
+
+    <h2>Empleados registrados</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de nacimiento</th>
+                <th>Departamento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="employees-table">
+
+        </tbody>
+    </table>
+    <script src="./js/employees.js"></script>
 </body>
 </html>
